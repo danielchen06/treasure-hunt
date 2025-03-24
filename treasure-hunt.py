@@ -131,3 +131,36 @@ class TreasureMap:
         else:
             print(f"It's a tie! Both hunters "
             f"collected treasures worth: {score1}.")
+
+
+class Stack:
+    def __init__(self):
+        self.items = []
+    def is_empty(self):
+        return self.items == []
+    def push(self, item):
+        self.items.append(item)                
+    def pop(self):
+        if self.is_empty():
+            raise IndexError('ERROR: The stack is empty!')
+        return self.items.pop()
+    def peek(self):
+        if self.is_empty():
+            raise IndexError('ERROR: The stack is empty!')
+        return self.items[len(self.items) - 1]
+    def size(self):
+        return len(self.items)        
+    def __str__(self):
+        return str(self.items)[:-1] + ' <-'	
+    def clear(self):
+        self.__items = []
+    def push_list(self, mylist):
+        for i in range(len(mylist)):
+           self.push(mylist[i])
+def create_characters_stack(characters):
+    a_stack = Stack()
+    for char in characters:
+        a_stack.push(char)
+    return a_stack
+
+main()
